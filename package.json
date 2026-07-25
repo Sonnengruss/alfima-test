@@ -1,0 +1,12 @@
+{
+  "name": "alfima-test",
+  "version": "1.0.0",
+  "description": "Test-Server fuer alfima list_ids",
+  "main": "server-test.js",
+  "scripts": {
+    "start": "node server-test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
