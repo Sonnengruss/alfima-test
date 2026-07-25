@@ -9,6 +9,7 @@ function httpsPost(body, callback) {
   const payload = JSON.stringify(body);
   const options = {
     hostname: 'app.alfima.com',
+    port: 443,
     path: '/api/v1/contacts',
     method: 'POST',
     headers: {
@@ -42,6 +43,10 @@ const server = http.createServer(function(req, res) {
       return;
     }
 
+    // Debug: zeige die ersten 8 Zeichen des Keys
+    const keyDebug = ALFIMA_API_KEY.substring(0, 8) + '...' + ALFIMA_API_KEY.slice(-4);
+    console.log('Key Debug:', keyDebug);
+
     const body1 = {
       email: TEST_EMAIL,
       list_ids: [1]
@@ -54,6 +59,7 @@ const server = http.createServer(function(req, res) {
 
     let ausgabe = 'alfima list_ids Test\n';
     ausgabe += 'Test-E-Mail: ' + TEST_EMAIL + '\n';
+    ausgabe += 'API-Key (gekuerzt): ' + keyDebug + '\n';
     ausgabe += '==========================================\n\n';
 
     ausgabe += 'Gesendeter JSON-Body Test 1:\n';
